@@ -18,6 +18,7 @@ install:
 script:
   - flake8
   - pylint */*.py
+  - pytest tests
 #jobs:
 #  include:
 #    - stage: "Tests"                # naming the Tests stage

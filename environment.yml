@@ -1,4 +1,4 @@
-name: myvenv
+name: oop_workshop
 dependencies:
 - python=3.6
 - pip:

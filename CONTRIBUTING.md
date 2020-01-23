@@ -95,4 +95,79 @@ very complexe schemes to test on many different python versions etc. For
 more information look at Travis
 [doc](https://docs.travis-ci.com/user/languages/python/) for python.
 
+## Release protocol
 
+Once you are ready to publish a release, branch off from `dev`
+    ```bash
+    git checkout -b release/vX.Y.Z dev
+    ```
+For meaning of X, Y and Z version numbers, please refer to this [semantic versionning guidelines](https://semver.org/spec/v2.0.0.html).
+
+In this branch, you should normally only update the version number in the `CHANGELOG.md` and `setup.py` files.
+
+Your `CHANGELOG.md` file could look like this before the release
+```
+## [unreleased]
+
+### Added
+- feature 1
+- feature 2
+### Changed 
+- thing 1
+- thing 2
+### Removed
+- some stuff
+```
+
+Simply replace `unreleased` by `X.Y.Z` and add the date of release in [ISO format](https://xkcd.com/1179/), then add the structure for a new `unreleased` version
+
+```
+## [unreleased]
+
+### Added
+-
+### Changed 
+-
+### Removed
+-
+
+## [X.Y.Z] - 20**-**-**
+### Added
+- feature 1
+- feature 2
+### Changed 
+- thing 1
+- thing 2
+### Removed
+- some stuff
+```
+
+After pushing these changes, create a pull request from `release/vX.Y.Z` towards `master` and merge it in `master`.
+
+Locally, merge `release/vX.Y.Z` into `dev
+
+`    ```bash
+    git checkout release/vX.Y.Z
+    ```
+    
+`    ```bash
+    git pull
+    ```
+
+
+`    ```bash
+    git checkout dev
+    ```
+    
+    ```bash
+    git merge release/vX.Y.Z
+    ```
+And push your these updates to the remote
+
+    ```bash
+    git push
+    ```
+
+The idea behind this procedure is to avoid creating a merge commit in `dev`.
+
+Finally, [create a release](https://help.github.com/en/github/administering-a-repository/creating-releases) on github. Please choose master as the target for the tag and format the tag as `vX.Y.Z`. In the description field simply copy-paste the content of the `CHANGELOG`descriptions for this release and you're done!

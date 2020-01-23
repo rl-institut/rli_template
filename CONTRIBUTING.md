@@ -26,8 +26,8 @@ it through first).
     ```bash
     git checkout -b feature/myfeature dev
     ```
-    The convention is to always have `feature/` in the branch name. The `myfeature` part should describe shortly what the feature is about (separate words with `_`).
-
+    The convention is to always have `feature/` in the branch name. The `myfeature` part should describe shortly what the feature is about (separate words with `-`).
+    If you are fixing and error you can replace `feature/` by `fix/`.
 2. Try to follow [these conventions](https://chris.beams.io/posts/git-commit) for commit messages:
     - Keep the subject line [short](https://chris.beams.io/posts/git-commit/#limit-50) (i.e. do not commit more than a few changes at the time)
     - Use [imperative](https://chris.beams.io/posts/git-commit/#imperative) for commit messages 
@@ -101,7 +101,7 @@ Once you are ready to publish a release, branch off from `dev`
     ```bash
     git checkout -b release/vX.Y.Z dev
     ```
-For meaning of X, Y and Z version numbers, please refer to this [semantic versionning guidelines](https://semver.org/spec/v2.0.0.html).
+For meaning of X, Y and Z version numbers, please refer to this [semantic versioning guidelines](https://semver.org/spec/v2.0.0.html).
 
 In this branch, you should normally only update the version number in the `CHANGELOG.md` and `setup.py` files.
 
@@ -148,7 +148,7 @@ Locally, merge `release/vX.Y.Z` into `dev`
 ```
 git checkout release/vX.Y.Z
 ```
-    
+
 ```
 git pull
 ```

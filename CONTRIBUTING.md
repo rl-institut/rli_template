@@ -144,30 +144,27 @@ Simply replace `unreleased` by `X.Y.Z` and add the date of release in [ISO forma
 
 After pushing these changes, create a pull request from `release/vX.Y.Z` towards `master` and merge it in `master`.
 
-Locally, merge `release/vX.Y.Z` into `dev
-
-`    ```bash
-    git checkout release/vX.Y.Z
-    ```
+Locally, merge `release/vX.Y.Z` into `dev`
+```
+git checkout release/vX.Y.Z
+```
     
-`    ```bash
-    git pull
-    ```
-
-
-`    ```bash
-    git checkout dev
-    ```
+```
+git pull
+```
     
-    ```bash
-    git merge release/vX.Y.Z
-    ```
+```
+git checkout dev
+```
+
+```
+git merge release/vX.Y.Z
+```
 And push your these updates to the remote
+```
+git push
+```
 
-    ```bash
-    git push
-    ```
-
-The idea behind this procedure is to avoid creating a merge commit in `dev`.
+The idea behind this procedure is to avoid creating a merge commit in `dev` (because `master` would otherwise have two merge commit for this release once you merge the next release).
 
 Finally, [create a release](https://help.github.com/en/github/administering-a-repository/creating-releases) on github. Please choose master as the target for the tag and format the tag as `vX.Y.Z`. In the description field simply copy-paste the content of the `CHANGELOG`descriptions for this release and you're done!
